@@ -6,6 +6,8 @@ $stmt = $conn->prepare($query);
 $stmt->execute();
 $tickets = $stmt->fetchAll();
 ?>
+  
+
 
 <!DOCTYPE html>
 <html lang="en">
