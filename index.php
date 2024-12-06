@@ -1,10 +1,10 @@
 <?php
 include 'includes/db.php';
 
-$query = "SELECT * FROM tickets";
-$stmt = $conn->prepare($query);
-$stmt->execute();
-$tickets = $stmt->fetchAll();
+//$query = "SELECT * FROM tickets";
+//$stmt = $conn->prepare($query);
+//$stmt->execute();
+//$tickets = $stmt->fetchAll();
 ?>
   
 
@@ -14,6 +14,7 @@ $tickets = $stmt->fetchAll();
 <head>
     <title>Ticket Service</title>
 </head>
+
 <body>
     <h1>Available Tickets</h1>
     <ul>
