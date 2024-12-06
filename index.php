@@ -16,7 +16,7 @@ include 'includes/db.php';
 </head>
 
 <body>
-    <h1>Available Tickets</h1>
+    <h1>Available Tickets ggggg</h1>
     <ul>
         <?php foreach ($tickets as $ticket): ?>
         <li>
