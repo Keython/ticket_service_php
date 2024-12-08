@@ -12,7 +12,7 @@ include 'includes/db.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Ticket Service</title>
+    <title>Biļešu serviss</title>
 </head>
 
 <body>
