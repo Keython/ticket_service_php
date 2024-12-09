@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 // Database connection
 $servername = "localhost";
 $username = "root";
@@ -13,70 +11,67 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the user is logged in
-$isLoggedIn = isset($_SESSION['username']);
-$userRole = $isLoggedIn ? $_SESSION['role'] : null;
+// Include the dynamic header
+include 'header.php';
+
+// Default sort option
+$sortOption = isset($_GET['sort']) ? $_GET['sort'] : null;
+
+// Modify query based on sort option
+$orderClause = "";
+if ($sortOption === 'price_asc') {
+    $orderClause = "ORDER BY events.price ASC";  // Sort by price in events table
+} elseif ($sortOption === 'price_desc') {
+    $orderClause = "ORDER BY events.price DESC"; // Sort by price in events table
+}
+
+// Search functionality
+$searchQuery = isset($_GET['search']) ? $_GET['search'] : "";
+$searchClause = $searchQuery ? "AND events.name LIKE '%$searchQuery%'" : "";
+
+// Fetch events with search and sort functionality (no need for JOIN with tickets table anymore)
+$query = "SELECT events.id AS event_id, events.name AS event_name, events.description AS event_description, events.date AS event_date, 
+                 events.price AS event_price
+          FROM events
+          WHERE 1 $searchClause $orderClause";
+$result = $conn->query($query);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Biļešu serviss</title>
-</head>
+<!-- Search bar and sort dropdown -->
+<div class="search-sort-container">
+    <form method="get" action="index.php" class="search-form">
+        <input type="text" name="search" placeholder="Meklēt pasākumu..." value="<?php echo htmlspecialchars($searchQuery); ?>">
+        <button type="submit" class="btn">Meklēt</button>
+        <select name="sort" onchange="this.form.submit()" class="dropdown">
+            <option value="">Kārtot</option>
+            <option value="price_asc" <?php echo $sortOption === 'price_asc' ? 'selected' : ''; ?>>Cena augoši</option>
+            <option value="price_desc" <?php echo $sortOption === 'price_desc' ? 'selected' : ''; ?>>Cena dilstoši</option>
+        </select>
+    </form>
+</div>
 
-<body>
-    <h1>Biļešu Serviss</h1>
+<!-- Display available events -->
+<?php if ($isLoggedIn): ?>
+    <h2>Pieejamie pasākumi</h2>
+    <ul class="event-list">
+        <?php if ($result && $result->num_rows > 0): ?>
+            <?php while ($event = $result->fetch_assoc()): ?>
+            <li class="event-item">
+                <h3><?php echo $event['event_name']; ?></h3>
+                <p class="event-date"><?php echo $event['event_date']; ?></p>
+                <p class="event-description"><?php echo $event['event_description']; ?></p>
+                <p class="event-price">Cena: <?php echo $event['event_price']; ?> €</p> <!-- Display price from events table -->
 
-    <!-- Display content based on login status -->
-    <?php if ($isLoggedIn): ?>
-        <p>Welcome, <strong><?php echo $_SESSION['username']; ?></strong> (<?php echo $_SESSION['role']; ?>)</p>
-        <?php if ($userRole == 'admin'): ?>
-            <p><a href="create_event.php">Create Event</a></p>
-        <?php endif; ?>
-        <p><a href="logout.php">Logout</a></p>
-
-        <h2>Available Tickets</h2>
-        <ul>
-            <?php
-            // Fetch tickets from the database
-            $query = "SELECT events.name AS event_name, events.date AS event_date, tickets.id, tickets.price 
-                      FROM tickets 
-                      JOIN events ON tickets.event_id = events.id";
-            $result = $conn->query($query);
-
-            if ($result && $result->num_rows > 0):
-                while ($ticket = $result->fetch_assoc()):
-            ?>
-            <li>
-                <strong><?php echo $ticket['event_name']; ?></strong> - <?php echo $ticket['event_date']; ?>
-                (Price: $<?php echo $ticket['price']; ?>)
-                <a href="booking.php?id=<?php echo $ticket['id']; ?>">Book Now</a>
+                <!-- "Pirkt biļeti" button -->
+                <a href="booking.php?id=<?php echo $event['event_id']; ?>" class="btn">Pirkt biļeti</a>
             </li>
-            <?php endwhile; else: ?>
-            <p>No tickets available.</p>
-            <?php endif; ?>
-        </ul>
-
-    <?php else: ?>
-        <h2>Login</h2>
-        <form method="post" action="login.php">
-            Username: <input type="text" name="username" required><br>
-            Password: <input type="password" name="password" required><br>
-            <button type="submit">Login</button>
-        </form>
-
-        <h2>Register</h2>
-        <form method="post" action="register.php">
-            Username: <input type="text" name="username" required><br>
-            Password: <input type="password" name="password" required><br>
-            Email: <input type="email" name="email" required><br>
-            Role:
-            <select name="role">
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-            </select><br>
-            <button type="submit">Register</button>
-        </form>
-    <?php endif; ?>
+            <?php endwhile; ?>
+        <?php else: ?>
+            <p>Nav pieejamu pasākumu.</p>
+        <?php endif; ?>
+    </ul>
+<?php else: ?>
+    <p>Lūdzu, autorizējieties vai reģistrējieties, lai iegādātos biļetes.</p>
+<?php endif; ?>
 </body>
 </html>
