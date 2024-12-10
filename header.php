@@ -11,6 +11,7 @@ $userRole = $isLoggedIn ? $_SESSION['role'] : null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biļešu serviss</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style_login_register.css"> <!-- Login/Register specific CSS -->
 </head>
 <body>
 <header>

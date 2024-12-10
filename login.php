@@ -1,6 +1,9 @@
 <?php
-session_start();
+//session_start();
 include 'config.php';
+
+// Include the dynamic header
+include 'header.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -18,17 +21,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
-            echo "Login successful. <a href='index.php'>Go to Dashboard</a>";
+            echo "<div class='message success'>Pieslēgšanās veiksmīga. <a href='index.php'>Uz sākumu.</a></div>";
         } else {
-            echo "Invalid password. <a href='login.php'>Try again</a>";
+            echo "<div class='message'>Nepareiza parole. <a href='login.php'>Mēģiniet vēlreiz</a></div>";
         }
     } else {
-        echo "User not found. <a href='register.php'>Register here</a>";
+        echo "<div class='message'>Lietotājs nepastāv. <a href='register.php'>Reģistrējieties šeit</a></div>";
     }
 }
 ?>
-<form method="post">
-    Username: <input type="text" name="username" required><br>
-    Password: <input type="password" name="password" required><br>
-    <button type="submit">Login</button>
-</form>
+
+<div class="container">
+    <div class="login-card">
+        <h2>Pieslēgties</h2>
+        <form class="login-form" method="post">
+            Lietotājvārds: <input type="text" name="username" required><br>
+            Parole: <input type="password" name="password" required><br>
+            <button type="submit">Pieslēgties</button>
+        </form>
+    </div>
+</div>

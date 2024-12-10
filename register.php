@@ -1,5 +1,6 @@
 <?php
 include 'config.php';
+include 'header.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -12,26 +13,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $conn->query($checkQuery);
 
     if ($result->num_rows > 0) {
-        echo "Username or Email already exists. <a href='register.php'>Try again</a>";
+        echo "Lietotājvārds vai e-pasts jau pastāv. <a href='register.php'>Mēģiniet vēlreiz.</a>";
     } else {
         // Insert new user into database
         $sql = "INSERT INTO users (username, password, email, role) VALUES ('$username', '$password', '$email', '$role')";
         if ($conn->query($sql) === TRUE) {
-            echo "Registration successful. <a href='login.php'>Login here</a>";
+            echo "Reģistrēšanās veiksmīga. <a href='login.php'>Pieslēgties</a>";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     }
 }
 ?>
-<form method="post">
-    Username: <input type="text" name="username" required><br>
-    Password: <input type="password" name="password" required><br>
-    Email: <input type="email" name="email" required><br>
-    Role: 
-    <select name="role">
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-    </select><br>
-    <button type="submit">Register</button>
-</form>
+<div class="container">
+    <div class="register-card">
+        <h2>Reģistrēties</h2>
+            <form method="post">
+                Lietotājvārds: <input type="text" name="username" required><br>
+                Parole: <input type="password" name="password" required><br>
+                E-pasts: <input type="email" name="email" required><br>
+                Konta veids: 
+                <select name="role">
+                    <option value="user">Lietotājs</option>
+                    <option value="admin">Administrators</option>
+                </select><br>
+                <button type="submit">Reģistrēties</button>
+            </form>
+    </div>
+</div>            

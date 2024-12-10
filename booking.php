@@ -11,6 +11,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+include 'header.php';
+
 // Get the event ID from the URL parameter
 $event_id = isset($_GET['id']) ? $_GET['id'] : null;
 $user_id = 1; // Replace this with actual logged-in user ID (usually from session)
@@ -49,15 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biļetes - <?php echo $event['name']; ?></title>
-    <link rel="stylesheet" href="style.css"> <!-- Link your main CSS file -->
-</head>
-<body>
     <div class="container">
         <div class="booking-card">
             <h2>Pirkt biļeti uz: <?php echo $event['name']; ?></h2>

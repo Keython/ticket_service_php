@@ -1,0 +1,88 @@
+/* General Form Styles */
+.container {
+    width: 80%;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #66a866;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #408040;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+/* Form Fields */
+form input[type="text"], 
+form input[type="password"], 
+form input[type="email"], 
+form select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #66a866;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+/* Focus and Hover Effects */
+form input[type="text"]:focus, 
+form input[type="password"]:focus, 
+form input[type="email"]:focus, 
+form select:focus {
+    border-color: #408040;
+    outline: none;
+    background-color: #ffffff;
+}
+
+/* Submit Button */
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #408040;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #306030;
+}
+
+/* Link Styling */
+a {
+    text-decoration: none;
+    color: #408040;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+a:hover {
+    color: #306030;
+}
+
+/* Error Message */
+.message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Success Message */
+.message.success {
+    color: green;
+}

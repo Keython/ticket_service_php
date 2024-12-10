@@ -4,6 +4,7 @@ body {
     background-color: #dfffd6; /* Light green background */
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
 /* Header Styling */
@@ -188,15 +189,7 @@ header nav ul li form .btn {
     }
 }
 
-/* General Styles------------------booking page */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8f0; /* Light background */
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
+/* --------------------------------------booking page */
 .container {
     width: 80%;
     margin: 30px auto;
