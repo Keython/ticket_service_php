@@ -12,6 +12,7 @@ $userRole = $isLoggedIn ? $_SESSION['role'] : null;
     <title>Biļešu serviss</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
     <link rel="stylesheet" href="style_login_register.css"> <!-- Login/Register specific CSS -->
+    <link rel="stylesheet" href="style_gallery_news.css"> <!-- Login/Register specific CSS -->
 </head>
 <body>
 <header>
@@ -20,7 +21,7 @@ $userRole = $isLoggedIn ? $_SESSION['role'] : null;
             <li><a href="index.php">Sākums</a></li>
             <?php if ($isLoggedIn): ?>
                 <!-- Authorized user navigation -->
-                <li><a href="gallery.php">Galerija</a></li>
+                <li><a href="gallery.php">Galerijas</a></li>
                 <li><a href="survey.php">Aptauja</a></li>
                 <li><a href="news.php">Ziņas</a></li>
                 <?php if ($userRole == 'admin'): ?>
@@ -34,7 +35,7 @@ $userRole = $isLoggedIn ? $_SESSION['role'] : null;
                 <li><form action="logout.php" method="post"><button type="submit" class="btn">Atslēgties</button></form></li>
             <?php else: ?>
                 <!-- Guest navigation -->
-                <li><a href="gallery.php">Galerija</a></li>
+                <li><a href="gallery.php">Galerijas</a></li>
                 <li><a href="survey.php">Aptauja</a></li>
                 <li><a href="news.php">Ziņas</a></li>
                 <li><a href="register.php" class="btn">Reģistrēties</a></li>

@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #dfffd6; /* Light green background */
+    background-color: #c7ffc7d6; /* Light green background */
     margin: 0;
     padding: 0;
     color: #333;
@@ -9,8 +9,9 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #66a866; /* Dark green header background */
+    /*background-color: #66a866; /* Dark green header background */
     padding: 15px 0;
+    background-color: #97d697;
 }
 
 header nav {
@@ -46,7 +47,8 @@ header nav ul li form .btn {
 
 header nav ul li a:hover, 
 header nav ul li form .btn:hover {
-    background-color: #306030; /* Slightly darker green on hover */
+    background-color: #fcd98c; /* Slightly darker green on hover */
+    color: black;
 }
 
 header nav ul li form .btn {
@@ -264,4 +266,57 @@ header nav ul li form .btn {
     .booking-card {
         padding: 15px;
     }
+}
+/*------------------------------------------------surveyy.php*/
+.survey-container {
+    width: 80%;
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #66a866;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.survey-container h2 {
+    color: #408040;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.survey-question {
+    margin-bottom: 15px;
+}
+
+.survey-question p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.survey-question label {
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+    font-size: 1em;
+    color: #555;
+}
+
+.survey-container .btn {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #408040;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.survey-container .btn:hover {
+    background-color: #306030;
 }

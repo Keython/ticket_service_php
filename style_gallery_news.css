@@ -1,0 +1,98 @@
+/* Folder List (Gallery Folders) */
+.folder-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.folder-item {
+    flex: 0 1 400px;
+    text-align: center;
+    border: 1px solid #66a866;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.folder-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.folder-item h3 {
+    padding: 10px;
+    background-color: #66a866;
+    color: white;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.folder-item:hover {
+    transform: scale(1.05);
+}
+
+/* Selected Gallery Images */
+.image-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.image-item {
+    flex: 0 1 150px;
+    text-align: center;
+}
+
+.image-item img {
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-item img:hover {
+    transform: scale(1.01);
+}
+.news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px; /* Small gap between cards */
+    max-width: 800px; /* Max width for the cards */
+    margin: 20px auto; /* Center the content with margin */
+    padding: 10px;
+}
+
+/* Each news card */
+.news-card {
+    background-color: #ffffff; /* White background for the cards */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Space inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a card-like effect */
+    width: 100%; /* Make the cards take the full width of their container */
+    max-width: 800px; /* Restrict the card's maximum width */
+    border: 1px solid #ddd; /* Border for slight separation */
+}
+
+/* Headings in each card */
+.news-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px; /* Space between title and content */
+    color: #333; /* Darker text for titles */
+}
+
+/* Content paragraph styling */
+.news-card p {
+    font-size: 16px;
+    color: #555; /* Lighter color for content */
+    line-height: 1.5; /* Increase line height for better readability */
+}
