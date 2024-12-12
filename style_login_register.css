@@ -86,3 +86,73 @@ a:hover {
 .message.success {
     color: green;
 }
+
+
+/* ------------------------------------Profile container */
+
+/* Inline event list for tickets */
+.inline-event-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+
+/* Ticket card */
+.tickets-container {
+    width: 90%;
+    margin: 30px auto;
+    max-width: 1000px;
+}
+.inline-event-item {
+    background-color: white;
+    border: 1px solid #66a866;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%; /* Consistent card width */
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 150px; /* Fixed height for uniformity */
+    overflow: hidden;
+}
+
+.inline-event-item h3 {
+    font-size: 1.1em;
+    color: #408040;
+    margin-bottom: 8px;
+}
+
+.inline-event-item .event-description {
+    font-size: 0.9em;
+    color: #34495e;
+    margin-bottom: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Truncate long descriptions */
+}
+
+.inline-event-item .event-date {
+    font-size: 0.85em;
+    color: #666;
+}
+
+/* Hover effect */
+.inline-event-item:hover {
+    transform: scale(1.03);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .inline-event-item {
+        width: 100%;
+    }
+}
