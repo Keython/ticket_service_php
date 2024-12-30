@@ -13,6 +13,7 @@ $userRole = $isLoggedIn ? $_SESSION['role'] : null;
     <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
     <link rel="stylesheet" href="style_login_register.css"> <!-- Login/Register specific CSS -->
     <link rel="stylesheet" href="style_gallery_news.css"> <!-- Login/Register specific CSS -->
+    <link rel="stylesheet" href="style_admin_views.css"> <!-- Login/Register specific CSS -->
 </head>
 <body>
 <header>

@@ -1,0 +1,67 @@
+/* General styling for the table */
+.event-table {
+    width: 100%; /* Make the table full width */
+    border-collapse: collapse; /* Collapse table borders */
+    margin: 20px 0; /* Add margin for spacing */
+    font-family: Arial, sans-serif; /* Font for the table */
+    border: 1px solid #ddd; /* Border for the table */
+    background-color: rgb(179, 219, 185);
+}
+
+/* Header row styling */
+.event-table th {
+    background-color: #505e50; 
+    color: #f2f2f2; 
+    text-align: left; /* Left-align the header text */
+    padding: 12px 15px; /* Add padding for spacing */
+    font-size: 16px; /* Larger font size for headers */
+}
+
+/* Data rows styling */
+.event-table td {
+    border: 1px solid #ddd; /* Light gray border for the cells */
+    padding: 10px 15px; /* Padding for cell spacing */
+    text-align: left; /* Left-align the text */
+}
+
+
+/* Add some space between the form inputs and button */
+.event-table form input[type="number"],
+.event-table form input[type="date"] {
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 5px;
+    width: 100px; /* Make input fields a bit wider */
+}
+
+/* Style for the update button */
+.event-table form button {
+    padding: 8px 15px;
+    background-color: #408040;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.event-table form button:hover {
+    background-color: #325f32; /* Darker green on hover */
+}
+
+/* Styling for the table container */
+.container {
+    max-width: 1500px; /* Limit the width of the container */
+    margin: 0 auto; /* Center the content */
+    padding: 20px;
+    background-color:white;
+}
+
+
+/* Table title styling */
+.container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
