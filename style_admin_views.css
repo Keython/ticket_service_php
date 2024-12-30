@@ -50,11 +50,13 @@
 }
 
 /* Styling for the table container */
-.container {
+.event-container {
     max-width: 1500px; /* Limit the width of the container */
     margin: 0 auto; /* Center the content */
     padding: 20px;
     background-color:white;
+    width: 80%;
+    margin: 30px auto;
 }
 
 

@@ -37,7 +37,7 @@ include 'header.php';
 ?>
 
 <!-- Page Content for User Accounts -->
-<div class="container">
+<div class="event-container">
     <h2>Lietotāju konti</h2>
 
     <?php if ($result && $result->num_rows > 0): ?>

@@ -38,7 +38,7 @@ include 'header.php';
 ?>
 
 <!-- Page Content for Events -->
-<div class="container">
+<div class="event-container">
     <h2>Pasākumi</h2>
 
     <?php if ($result && $result->num_rows > 0): ?>
