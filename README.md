@@ -1,7 +1,6 @@
 Biļešu serviss PHP - Instalācija
 Lai uzstādītu šo PHP balstīto biļešu servisu uz sava datora, seko šiem soļiem:
-1. Lejupielādē vai noklonē projektu
-Noklonē šo GitHub repozitoriju uz sava datora vai lejupielādē to kā ZIP failu. https://github.com/Keython/ticket_service_php
+1. Lejupielādē vai noklonē šo GitHub repozitoriju uz sava datora vai lejupielādē to kā ZIP failu. https://github.com/Keython/ticket_service_php
 3. Ievieto projekta failus uz XAMPP servera
 Ja izmanto XAMPP (vai citu PHP serveri), pārvieto noklonētos failus uz XAMPP htdocs direktoriju. Iepriekš jābūt instalētam PHP serverim ar MySQL atbalstu. 
 •	Windows lietotājiem: C:\xampp\htdocs\
